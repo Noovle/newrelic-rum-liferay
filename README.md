@@ -17,15 +17,19 @@ In this repo is present a velocity-hook that inject a new bean in the Velocity c
 _After_ deploy the hook the following snippet are _required_ in the Liferay theme.
 
 This after META tags
+```
 #set ($NewRelicTool = $utilLocator.findUtil("velocity-hook", "it.noovle.open.liferay.newrelic.NewRelicWrapper"))
 <!-- NewRelic RUM START-->
 $NewRelicTool.getBrowserTimingHeader()
 <!-- NewRelic RUM END -->
+```
 
 This before the </body>
+```
 <!-- NewRelic RUM START-->
 $NewRelicTool.getBrowserTimingFooter()
 <!-- NewRelic RUM END -->
+```
 
 [1] https://discuss.newrelic.com/t/howto-real-user-monitoring-in-liferay-portal-6-1-6-2/4293
 [2] https://docs.newrelic.com/docs/agents/java-agent/instrumentation/page-load-timing-java#manual_instrumentation
