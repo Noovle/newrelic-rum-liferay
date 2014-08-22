@@ -1,6 +1,3 @@
-newrelic-rum-liferay
-====================
-
 Liferay hook that inject custom variables in Velocity to do New Relic manual instrumentation of web pages.
 
 Take a look at the [discussion](https://discuss.newrelic.com/t/howto-real-user-monitoring-in-liferay-portal-6-1-6-2/4293) on New Relic forums [1]
