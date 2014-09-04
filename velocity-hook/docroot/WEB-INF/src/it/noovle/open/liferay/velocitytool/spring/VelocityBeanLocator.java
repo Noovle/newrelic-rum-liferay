@@ -1,4 +1,4 @@
-package it.noovle.open.liferay.newrelic.spring;
+package it.noovle.open.liferay.velocitytool.spring;
 
 import com.liferay.portal.kernel.bean.BeanLocatorException;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,7 @@
-package it.noovle.open.liferay.newrelic.spring;
+package it.noovle.open.liferay.velocitytool.spring;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -13,6 +16,8 @@ public class SpringBeanLocator implements ApplicationContextAware {
 	private static final Log log = LogFactoryUtil
 			.getLog(SpringBeanLocator.class);
 
+	private static Map<String, Object> classMap = new HashMap<String, Object>();
+
 	private static ApplicationContext ctx;
 
 	/**
@@ -25,9 +30,12 @@ public class SpringBeanLocator implements ApplicationContextAware {
 			Class<?> clazz = Class.forName(className);
 			log.debug("Class: " + clazz);
 			log.debug("ApplicationContext: " + ctx);
-			// return (T) ctx.getBean(clazz);
-			//TODO need a singleton here
-			return (T) clazz.newInstance();
+			Object classInstance = classMap.get(className);
+			if (classInstance == null) {
+				classInstance = clazz.newInstance();
+				classMap.put(className, classInstance);
+			}
+			return (T) classInstance;
 		} catch (BeansException e) {
 			throw new RuntimeException(e);
 		} catch (ClassNotFoundException e) {
