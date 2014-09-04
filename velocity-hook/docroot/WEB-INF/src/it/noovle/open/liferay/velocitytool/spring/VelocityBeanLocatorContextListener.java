@@ -1,4 +1,4 @@
-package it.noovle.open.liferay.newrelic.spring;
+package it.noovle.open.liferay.velocitytool.spring;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;

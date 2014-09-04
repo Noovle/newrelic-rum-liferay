@@ -1,4 +1,4 @@
-package it.noovle.open.liferay.newrelic;
+package it.noovle.open.liferay.velocitytool;
 
 import org.springframework.stereotype.Service;
 
